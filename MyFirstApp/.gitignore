@@ -8,6 +8,9 @@
 /captures
 .externalNativeBuild
 
+.idea  #ide 相关
+*.apk  #optional
+
 # Built application files
 *.apk
 *.ap_
