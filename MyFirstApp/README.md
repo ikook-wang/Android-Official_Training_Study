@@ -4,7 +4,7 @@
 ## View
 Android 应用的图形界面使用 View 对象以及 ViewGroup对象层次结构而构建。View 对象通常为按钮或文本字段之类的 UI 小部件。而 ViewGroup 对象则为不可见的视图容器，它们定义子视图的布局。
 
-![ViewGroup 对象如何在布局中形成分支并容纳其他 View 对象的图解](https://developer.android.com/images/viewgroup.png)
+![ViewGroup 对象如何在布局中形成分支并容纳其他 View 对象的图解](http://oe94sy64u.bkt.clouddn.com/viewgroup.png)
 
 ## 替代布局
 以 XML 格式（而不是运行时代码的方式）声明 UI 布局有若干用处，但其中最重要的用处便是，可以创建不同的布局来适应不同的屏幕尺寸。 例如，可以创建两个版本的布局，并指示系统在“小”屏幕上使用哪个版本，在“大”屏幕上使用哪个版本。
