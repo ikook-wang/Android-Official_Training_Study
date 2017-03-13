@@ -15,4 +15,4 @@ Including the project and summarized.
  - [intent](https://github.com/china-kook/Android-Official_Training_Study/tree/master/MyFirstApp#intent)
  - [布局](https://github.com/china-kook/Android-Official_Training_Study/tree/master/MyFirstApp#布局)
 
- 以上总结都是 Training 文档 Building Your First app 所涉及的知识，并不是针对某一知识点的完全解析，而是只总结了 Building Your First app 所涉及到的知识点。
+ 以上总结都是 Training 文档 Building Your First app 所涉及的知识，并不是针对某一知识点的完全解析，而是只总结了其中所涉及到的零散的知识点。
