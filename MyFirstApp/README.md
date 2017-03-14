@@ -97,7 +97,9 @@ protected void onCreate(Bundle savedInstanceState) {
    layout.addView(textView);
 }
 ```
+
 此处会执行大量操作，因此我们接着解释：
+
 1. 调用 getIntent() 采集启动 Activity 的 intent。无论用户如何导航到目的地，每个 Activity 都由一个 Intent 调用。 调用 getStringExtra() 将检索第一个 Activity 中的数据。
 
 2. 可以使用编程方式创建 TextView 并设置其大小和消息。
