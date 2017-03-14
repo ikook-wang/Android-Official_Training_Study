@@ -253,19 +253,59 @@ ViewGroup 类的每个子类都提供了一种独特的方式来显示在其中�
 
  Android 提供了几个 Adapter 子类，用于检索不同种类的数据和构建 AdapterView 的视图。 两种最常见的适配器是：
 
- **ArrayAdpater:**
+  - ##### ArrayAdpater:
 
- 请在数据源为数组时使用此适配器。默认情况下，ArrayAdapter 会通过在每个项目上调用 toString() 并将内容放入 TextView 来为每个数组项创建视图。
+    请在数据源为数组时使用此适配器。默认情况下，ArrayAdapter 会通过在每个项目上调用 toString() 并将内容放入 TextView 来为每个数组项创建视图。
 
- 例如，如果具有想要在 ListView 中显示的字符串数组，请使用构造函数初始化一个新的 ArrayAdapter，为每个字符串和字符串数组指定布局：
- ```java
+    例如，如果具有想要在 ListView 中显示的字符串数组，请使用构造函数初始化一个新的 ArrayAdapter，为每个字符串和字符串数组指定布局：
+   ```java
  ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
         android.R.layout.simple_list_item_1, myStringArray);
  ```
- 此构造函数的参数是：
- - 应用 Context
- - 包含数组中每个字符串的 TextView 的布局
- - 字符串数组
+   此构造函数的参数是：
+    - 应用 Context
+
+    - 包含数组中每个字符串的 TextView 的布局
+
+    - 字符串数组
+
+    然后，只需在 ListView 上调用 setAdapter()：
+    ```java
+ ListView listView = (ListView) findViewById(R.id.listview);
+listView.setAdapter(adapter);
+ ```
+   要想自定义每个项的外观，您可以重写数组中各个对象的 toString() 方法。或者，要想为 TextView 之外的每个项创建视图（例如，如果想为每个数组项创建一个 ImageView），请扩展 ArrayAdapter 类并重写 getView() 以返回想要为每个项获取的视图类型。
+
+  - ##### SimpleCursorAdapter:
+
+    请在数据来自 Cursor 时使用此适配器。使用 SimpleCursorAdapter 时，必须指定要为 Cursor 中的每个行使用的布局，以及应该在哪些布局视图中插入 Cursor 中的哪些列。 例如，如果想创建人员姓名和电话号码列表，则可以执行一个返回 Cursor（包含对应每个人的行，以及对应姓名和号码的列）的查询。 然后，可以创建一个字符串数组，指定想要在每个结果的布局中包含 Cursor 中的哪些列，并创建一个整型数组，指定应该将每个列放入的对应视图：
+ ```java
+ String[] fromColumns = {ContactsContract.Data.DISPLAY_NAME,
+                        ContactsContract.CommonDataKinds.Phone.NUMBER};
+int[] toViews = {R.id.display_name, R.id.phone_number};
+ ```
+   当实例化 SimpleCursorAdapter 时，请传递要用于每个结果的布局、包含结果的 Cursor 以及以下两个数组：
+ ```java
+ SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
+        R.layout.person_name_and_number, cursor, fromColumns, toViews, 0);
+ListView listView = getListView();
+listView.setAdapter(adapter);
+ ```
+   然后，SimpleCursorAdapter 会使用提供的布局，将每个 fromColumns 项插入对应的 toViews 视图，为 Cursor 中的每个行创建一个视图。
+
+   如果在应用的生命周期中更改了适配器读取的底层数据，则应调用 notifyDataSetChanged()。此操作会通知附加的视图，数据发生了变化，它应该自行刷新。
+
+ - #### 处理点击事件
+ 可以通过实现 AdapterView.OnItemClickListener 界面来响应 AdapterView 中每一项上的点击事件。 例如：
+ ```java
+ // 创建一个匿名类作为消息处理对象。
+ private OnItemClickListener mMessageClickedHandler = new OnItemClickListener() {
+     public void onItemClick(AdapterView parent, View v, int position, long id) {
+         // Do something in response to the click
+     }
+ };
+ listView.setOnItemClickListener(mMessageClickedHandler);
+ ```
 
 <br/>
 ikook<br/>
