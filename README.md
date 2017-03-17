@@ -4,7 +4,7 @@ Study Google android official training documents,
 Including the project and summarized.
 
 
-- ### 2017.03.12 [Training first app](https://github.com/china-kook/Android-Official_Training_Study/tree/master/MyFirstApp)
+### 2017.03.12 [Training first app](https://github.com/china-kook/Android-Official_Training_Study/tree/master/MyFirstApp)
  实现了 Training 文档 [Building Your First App](https://developer.android.com/training/basics/firstapp/index.html)， 并总结归纳了所涉及的知识点。包括如下：
  - [View](https://github.com/china-kook/Android-Official_Training_Study/tree/master/MyFirstApp#view)
  - [替代布局](https://github.com/china-kook/Android-Official_Training_Study/tree/master/MyFirstApp#替代布局)
